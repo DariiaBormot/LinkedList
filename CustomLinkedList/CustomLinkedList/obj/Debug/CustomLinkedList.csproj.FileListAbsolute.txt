@@ -1,0 +1,6 @@
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.csprojAssemblyReference.cache
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.exe.config
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.exe
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.pdb
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.exe
+C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.pdb

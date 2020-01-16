@@ -10,30 +10,24 @@ namespace CustomLinkedList
     {
         static void Main(string[] args)
         {
-            var igor = new Laptop(1, "Igor");
-            var lenovo = new Laptop(2, "Lenovo");
-            var asus = new Laptop(3, "Asus");
-            var aser = new Laptop(1, "Aser");
-            var sumsung = new Laptop(2, "Sumsung");
-            var dell = new Laptop(3, "Dell");
 
-            CustomList laptopCollection = new CustomList();
+            CustomList<object> ObjCollection = new CustomList<object>();
 
-            laptopCollection.Add(dell);
-            laptopCollection.Add(igor);
-            laptopCollection.Add(aser);
-            laptopCollection.Add(lenovo);
-            laptopCollection.Add(asus);
-            laptopCollection.Add(sumsung);
-            laptopCollection.Add(dell);
 
-            laptopCollection.Delete(dell);
-            laptopCollection.Delete(asus);
+            ObjCollection.Add(1);
+            ObjCollection.Add(2);
+            ObjCollection.Add(3);
+            ObjCollection.Add(4);
+            ObjCollection.Add(5);
+            ObjCollection.Add(6);
 
-            Console.WriteLine(laptopCollection[2].Name);
+            ObjCollection.Delete(1);
+            ObjCollection.Delete(5);
+
+            Console.WriteLine(ObjCollection[2]);
             Console.WriteLine();
 
-            foreach (var laptop in laptopCollection)
+            foreach (var laptop in ObjCollection)
                 Console.WriteLine(laptop);
             Console.ReadKey();
         }

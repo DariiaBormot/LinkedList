@@ -4,3 +4,9 @@ C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\bin\Debug\Cus
 C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.pdb
 C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.exe
 C:\Users\Дарья\source\repos\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.pdb
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.exe.config
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.exe
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\bin\Debug\CustomLinkedList.pdb
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.csprojAssemblyReference.cache
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.exe
+F:\.Net C#\Lesson15\Linked_List\CustomLinkedList\CustomLinkedList\obj\Debug\CustomLinkedList.pdb

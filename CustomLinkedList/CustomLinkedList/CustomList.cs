@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace CustomLinkedList
 {
-    class CustomList : IEnumerable, ICustomList
+    class CustomList <T> : IEnumerable, ICustomList<T>
     {
-        public Node Head { get; private set; }
-        public Node Tail { get; private set; }
+        public Node<T> Head { get; private set; }
+        public Node<T> Tail { get; private set; }
         public int Count { get; private set; }
 
-        public Laptop this[int index] 
+        public T this[int index] 
         { 
             get 
             {
-                Node current = Head;
+                Node<T> current = Head;
                 for (int j = 0; j < index; j++)
                     current = current.NextElement;
                 return current.Item;
@@ -31,17 +31,17 @@ namespace CustomLinkedList
             Count = 0;
         }
 
-        public CustomList (Laptop item)
+        public CustomList (T item)
         {
-            Node node = new Node(item);
+            Node<T> node = new Node<T>(item);
             Head = node;
             Tail = node;
             Count = 1;
         }
 
-        public void Add(Laptop item)
+        public void Add(T item)
         {
-            Node node = new Node(item);
+            Node<T> node = new Node<T>(item);
             if (Head == null)
             {
                 Head = node;
@@ -55,7 +55,7 @@ namespace CustomLinkedList
             Count++;
         }
 
-        public void Delete(Laptop item)
+        public void Delete(T item)
         {
            if (Head != null)
             {
@@ -83,11 +83,11 @@ namespace CustomLinkedList
 
         public IEnumerator GetEnumerator()
         {
-            Node beforeHead = new Node();
+            Node<T> beforeHead = new Node<T>();
             beforeHead.NextElement = Head;
 
-            return new CustomListIEnumerator(beforeHead);
+            return new CustomListIEnumerator<T>(beforeHead);
         }
-       
+
     }
 }

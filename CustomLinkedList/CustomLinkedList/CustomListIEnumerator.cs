@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CustomLinkedList
 {
-    class CustomListIEnumerator : IEnumerator
+    class CustomListIEnumerator <T> : IEnumerator
     {
-        private Node current;
-        private Node head;
+        private Node<T> current;
+        private Node<T> head;
 
-        public CustomListIEnumerator (Node node)
+        public CustomListIEnumerator (Node<T> node)
         {
             current = node;
             head = node;

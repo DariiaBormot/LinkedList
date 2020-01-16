@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CustomLinkedList
 {
-    interface ICustomList
+    interface ICustomList<T>
     {
-        void Add(Laptop item);
+        void Add(T item);
 
-        Laptop this[int index] { get; }
+        T this[int index] { get; }
 
-        void Delete(Laptop item);
+        void Delete(T item);
     }
 }

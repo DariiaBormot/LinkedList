@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace CustomLinkedList
 {
-    public class Node
+    public class Node <T>
     {
-        public Laptop Item { get; set; }
+        public T Item { get; set; }
 
-        public Node NextElement { get; set; }
+        public Node<T> NextElement { get; set; }
         
-        public Node (Laptop item)
+        public Node (T item)
         {
             Item = item;
         }
         public Node()
         {
-            Item = null;
+            Item = default(T);
         }
     }
 }

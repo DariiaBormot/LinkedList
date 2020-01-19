@@ -11,25 +11,59 @@ namespace CustomLinkedList
         static void Main(string[] args)
         {
 
-            CustomList<object> ObjCollection = new CustomList<object>();
+     
 
+            var toshiba = new Laptop("Toshiba");
+            var lenovo = new Laptop("Lenovo");
+            var asus = new Laptop("Asus");
+            var aser = new Laptop("Aser");
+            var sumsung = new Laptop("Sumsung");
+            var dell = new Laptop("Dell");
 
-            ObjCollection.Add(1);
-            ObjCollection.Add(2);
-            ObjCollection.Add(3);
-            ObjCollection.Add(4);
-            ObjCollection.Add(5);
-            ObjCollection.Add(6);
+            //CustomList<Laptop> LaptopCollection = new CustomList<Laptop>();
 
-            ObjCollection.Delete(1);
-            ObjCollection.Delete(5);
+            //LaptopCollection.Add(toshiba);
+            //LaptopCollection.Add(lenovo);
+            //LaptopCollection.Add(asus);
+            //LaptopCollection.Add(aser);
+            //LaptopCollection.Add(sumsung);
+            //LaptopCollection.Add(dell);
 
-            Console.WriteLine(ObjCollection[2]);
+            //LaptopCollection.Delete(toshiba);
+
+            //Console.WriteLine(LaptopCollection[2]);
+            //Console.WriteLine();
+
+            //foreach (var laptop in LaptopCollection)
+            //    Console.WriteLine(laptop);
+            //Console.ReadKey();
+            //Console.WriteLine();
+
+            DoublyLinkedList<Laptop> NewLaptopCollection = new DoublyLinkedList<Laptop>();
+
+            NewLaptopCollection.Add(toshiba);
+            NewLaptopCollection.Add(lenovo);
+            NewLaptopCollection.Add(asus);
+            NewLaptopCollection.Add(aser);
+            NewLaptopCollection.Add(sumsung);
+            NewLaptopCollection.Add(dell);
+
+            foreach (var op in NewLaptopCollection)
+                Console.WriteLine(op);
             Console.WriteLine();
 
-            foreach (var laptop in ObjCollection)
-                Console.WriteLine(laptop);
+            NewLaptopCollection.Delete(toshiba);
+            NewLaptopCollection.Delete(aser);
+            NewLaptopCollection.Delete(dell);
+            NewLaptopCollection.Delete(toshiba);
+
+
+            foreach (var op in NewLaptopCollection)
+                Console.WriteLine(op);
+
             Console.ReadKey();
+
+
         }
     }
 }

@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="CustomList.cs" />
     <Compile Include="CustomListIEnumerator.cs" />
+    <Compile Include="DoublyLinkedList.cs" />
+    <Compile Include="DoublyNode.cs" />
     <Compile Include="ICustomList.cs" />
+    <Compile Include="Laptop.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

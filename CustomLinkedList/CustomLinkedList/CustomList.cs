@@ -5,22 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomLinkedList
+namespace CustomLinkedList  
 {
     class CustomList <T> : IEnumerable, ICustomList<T>
     {
-        public Node<T> Head { get; private set; }
-        public Node<T> Tail { get; private set; }
-        public int Count { get; private set; }
+        public Node<T> Head { get; protected set; }
+        public Node<T> Tail { get; protected set; }
+        public int Count { get; protected set; }
 
         public T this[int index] 
         { 
             get 
             {
                 Node<T> current = Head;
-                for (int j = 0; j < index; j++)
-                    current = current.NextElement;
-                return current.Item;
+
+                if (current != null)
+                {
+                    for (int j = 0; j < index; j++)
+                        current = current.NextElement;
+                    return current.Item;
+                }
+                return default(T);
             }
         }
 
@@ -39,7 +44,7 @@ namespace CustomLinkedList
             Count = 1;
         }
 
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             Node<T> node = new Node<T>(item);
             if (Head == null)
@@ -55,32 +60,28 @@ namespace CustomLinkedList
             Count++;
         }
 
-        public void Delete(T item)
+        public virtual void Delete(T item)
         {
-           if (Head != null)
+            var current = Head;
+            var previous = current;
+
+            while(current != null)
             {
-                if (Head.Item.Equals (item))
+                if (current.Item.Equals (item))
                 {
-                    Head = Head.NextElement;
-                    Count--;
+                    previous.NextElement = current.NextElement;
+                    if (current == Head)
+                        Head = current.NextElement;
+                    if (current == Tail)
+                        Tail = previous;
                     return;
                 }
-                var current = Head.NextElement;
-                var previous = Head;
-                while (current != null)
-                {
-                    if (current.Item.Equals (item))
-                    {
-                        previous.NextElement = current.NextElement;
-                        Count--;
-                        return;
-                    }
-                    previous = current;
-                    current = current.NextElement;
-                }
+                previous = current;
+                current = current.NextElement;
             }
-        }
 
+        }
+          
         public IEnumerator GetEnumerator()
         {
             Node<T> beforeHead = new Node<T>();

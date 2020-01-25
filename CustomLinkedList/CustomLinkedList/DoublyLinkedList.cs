@@ -38,7 +38,7 @@ namespace CustomLinkedList
             ((DoublyNode<T>)current).PreviousElement = (DoublyNode<T>)current.NextElement;
         }
 
-        public IEnumerator<T> GetEnumeratorByDelegate(MyDelegate<T> getMethod)
+        public IEnumerable<T> GetEnumeratorByDelegate(MyDelegate<T> getMethod)
         {     
 
             DoublyNode<T> current = (DoublyNode<T>)Head;

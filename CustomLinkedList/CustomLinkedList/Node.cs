@@ -11,7 +11,7 @@ namespace CustomLinkedList
         public T Item { get; set; }
 
         public Node<T> NextElement { get; set; }
-        
+
         public Node (T item)
         {
             Item = item;

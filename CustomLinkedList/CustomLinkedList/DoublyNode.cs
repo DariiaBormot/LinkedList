@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomLinkedList
 {
-    class DoublyNode<T> : Node<T>
+    public  class DoublyNode<T> : Node<T>
     {
-        public Node<T> PreviousElement { get; set; }
+        public DoublyNode<T> PreviousElement { get; set; }
 
         public DoublyNode(T item)
         {

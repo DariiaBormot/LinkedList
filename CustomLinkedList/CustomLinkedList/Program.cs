@@ -48,18 +48,17 @@ namespace CustomLinkedList
             NewLaptopCollection.Add(sumsung);
             NewLaptopCollection.Add(dell);
 
-            foreach (var op in NewLaptopCollection)
-                Console.WriteLine(op);
-            Console.WriteLine();
+            //foreach (var op in NewLaptopCollection)
+            //    Console.WriteLine(op);
+            //Console.WriteLine();
 
             NewLaptopCollection.Delete(toshiba);
             NewLaptopCollection.Delete(aser);
             NewLaptopCollection.Delete(dell);
             NewLaptopCollection.Delete(toshiba);
 
-
-            foreach (var op in NewLaptopCollection)
-                Console.WriteLine(op);
+            foreach (var lapt in NewLaptopCollection)
+                Console.WriteLine(lapt);
 
             Console.ReadKey();
 

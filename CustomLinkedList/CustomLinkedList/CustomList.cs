@@ -46,20 +46,32 @@ namespace CustomLinkedList
 
         public virtual void Add(T item)
         {
-            Node<T> node = new Node<T>(item);
+            var node = CreateNode(item);
+
             if (Head == null)
             {
                 Head = node;
-                Tail = node;
             }
             else
             {
-                Tail.NextElement = node;
-                Tail = node;
+                MoveTail(node, Tail);
             }
+            Tail = node;
             Count++;
         }
 
+        protected virtual Node<T> CreateNode(T item )
+        {
+            Node<T> node = new Node<T>(item);
+            return node;
+        }
+
+        protected virtual void MoveTail(Node<T> node, Node<T> Tail)
+        {
+            Tail.NextElement = node;
+        }
+
+   
         public virtual void Delete(T item)
         {
             var current = Head;
@@ -68,20 +80,25 @@ namespace CustomLinkedList
             while(current != null)
             {
                 if (current.Item.Equals (item))
-                {
-                    previous.NextElement = current.NextElement;
+                {                  
                     if (current == Head)
                         Head = current.NextElement;
                     if (current == Tail)
                         Tail = previous;
+                    if (current != Head && current != Tail)
+                        DeleteMiddle(current, previous);
                     return;
                 }
                 previous = current;
                 current = current.NextElement;
             }
-
         }
-          
+
+        public virtual void DeleteMiddle(Node <T> current, Node <T> previous)
+        {
+            previous.NextElement = current.NextElement;
+        }
+
         public IEnumerator GetEnumerator()
         {
             Node<T> beforeHead = new Node<T>();

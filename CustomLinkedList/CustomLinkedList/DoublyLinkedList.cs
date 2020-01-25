@@ -9,68 +9,42 @@ namespace CustomLinkedList
  
     class DoublyLinkedList<T> : CustomList <T>
     {
-        public DoublyLinkedList()
-        {
-            Head = null;
-            Tail = null;
-            Count = 0;
-        }
-
-        public DoublyLinkedList (T data)
-        {
-            DoublyNode<T> node = new DoublyNode<T>();
-            Head = node;
-            Tail = node;
-            Count++;
-        }
-
+         
         public override void Add(T item)
         {
-            DoublyNode<T> node = new DoublyNode<T>(item); 
-            if (Head != null)
-            {
-                node.PreviousElement = Tail;
-                base.Add(item);
-            }
-            else 
             base.Add(item);
+        }
+
+        protected override Node<T> CreateNode(T item)
+        {
+            DoublyNode<T> node = new DoublyNode<T>(item);
+            return node;
+        }
+
+        protected override void MoveTail(Node<T> node, Node<T> Tail)
+        {
+            base.MoveTail(node, Tail);
+            ((DoublyNode<T>)node).PreviousElement = (DoublyNode<T>)Tail;
         }
 
         public override void Delete(T item)
         {
-            
-            var current = Head;
-            var previous = current;
-            while (current != null)
-            {
-                if (current.Item.Equals (item))
-                {
-                    previous.NextElement = current.NextElement;
-                    current.PreviousElement = current.NextElement;
-                    if (current == Head)
-                    {
-                        base.Delete(item);
-                    }
-                    if (current == Tail)
-                    {
-                        base.Delete(item);
-                    }
-                    return;
-                }
-                previous = current;
-                current = current.NextElement;
-            }
-            
+            base.Delete(item);
         }
 
-        public IEnumerable<T> GetByDelegate(MyDelegate<T> del)
+        public override void DeleteMiddle(Node<T> current, Node<T> previous)
         {
-            DoublyNode<T> current = new DoublyNode<T>();
-            current = (DoublyNode<T>)Head;
+            base.DeleteMiddle(current, previous);
+            ((DoublyNode<T>)current).PreviousElement = (DoublyNode<T>)current.NextElement;
+        }
+
+        public IEnumerable<T> GetEnumeratorByDelegate(MyDelegate<T> getMethod)
+        {
+            DoublyNode<T> current = (DoublyNode<T>)Head;
 
             while (current != null)
             {
-                var startsFrom = del?.Invoke(current.Item);
+                var startsFrom = getMethod?.Invoke(current.Item);
 
                 if (startsFrom == true)
                 {
@@ -81,6 +55,7 @@ namespace CustomLinkedList
             }
 
         }
+         
 
         public delegate bool MyDelegate<U>(U laptop);
 

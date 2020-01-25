@@ -20,14 +20,14 @@ namespace CustomLinkedList
             var sumsung = new Laptop("Sumsung");
             var dell = new Laptop("Dell");
 
-            //CustomList<Laptop> LaptopCollection = new CustomList<Laptop>();
+            CustomList<Laptop> LaptopCollection = new CustomList<Laptop>();
 
-            //LaptopCollection.Add(toshiba);
-            //LaptopCollection.Add(lenovo);
-            //LaptopCollection.Add(asus);
-            //LaptopCollection.Add(aser);
-            //LaptopCollection.Add(sumsung);
-            //LaptopCollection.Add(dell);
+            LaptopCollection.Add(toshiba);
+            LaptopCollection.Add(lenovo);
+            LaptopCollection.Add(asus);
+            LaptopCollection.Add(aser);
+            LaptopCollection.Add(sumsung);
+            LaptopCollection.Add(dell);
 
             //LaptopCollection.Delete(toshiba);
 

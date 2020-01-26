@@ -38,16 +38,16 @@ namespace CustomLinkedList
             ((DoublyNode<T>)current).PreviousElement = (DoublyNode<T>)current.NextElement;
         }
 
-        public IEnumerable<T> GetEnumeratorByDelegate(MyDelegate<T> getMethod)
+        public IEnumerable<T> GetEnumeratorByDelegate(MyDelegate<T> del)
         {     
 
             DoublyNode<T> current = (DoublyNode<T>)Head;
 
             while (current != null)
             {
-                var startsFrom = getMethod?.Invoke(current.Item);
+                var validate = del?.Invoke(current.Item);
 
-                if (startsFrom == true)
+                if (validate == true)
                 {
                     yield return current.Item;
      
@@ -57,18 +57,16 @@ namespace CustomLinkedList
         }
 
 
-        public delegate bool MyDelegate<U>(U laptop);
+        public delegate bool MyDelegate<T>(T item);
 
-        MyDelegate<Laptop> getMethod = new MyDelegate<Laptop>(NameStartsFrom);
+        MyDelegate<T> getMethod = new MyDelegate<T>(IsNull);
 
-        public static bool NameStartsFrom(Laptop laptop)
+        public static bool IsNull(T item)
         {
-            var name = laptop.Name;
-           
-            if (name[0].Equals ("a"))
-             return true; 
+            if (item != null)
+                return true;
             else
-             return false;
+                return false;
         }
 
     }
